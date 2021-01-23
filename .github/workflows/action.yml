@@ -16,6 +16,7 @@ jobs:
           curl https://rclone.org/install.sh | sudo bash
       - name: rclone Config
         run: |
+          mkdir -p ~/.config/rclone
           cat >  ~/.config/rclone/rclone.conf  << EOF
           ${{ secrets.RCLONE_CONFIG }}
           EOF
