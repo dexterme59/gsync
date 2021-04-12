@@ -22,4 +22,4 @@ jobs:
           EOF
       - name: rclone Run
         run: |
-          rclone copy gd:/ oned:/ -P --check-first --stats-one-line --stats=1s --transfers 15 --onedrive-chunk-size 120M --drive-chunk-size 128M
+          rclone copy gd:/ oned:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 15 --onedrive-chunk-size 120M --drive-chunk-size 128M
