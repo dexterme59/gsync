@@ -1,4 +1,4 @@
-name: pahesync
+name: onesync
 on:
   schedule:
     - cron: 0 */12 * * *
@@ -8,7 +8,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    name: Pahe Copy
+    name: Courses Copy
     steps:
       - uses: actions/checkout@v2
       - name: rclone Install
