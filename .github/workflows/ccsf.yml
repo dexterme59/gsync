@@ -1,0 +1,25 @@
+name: onesync
+on:
+  schedule:
+    - cron: 0 6/12 * * *
+  workflow_dispatch:
+    inputs:
+    
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Courses Copy
+    steps:
+      - uses: actions/checkout@v2
+      - name: rclone Install
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+      - name: rclone Config
+        run: |
+          mkdir -p ~/.config/rclone
+          cat >  ~/.config/rclone/rclone.conf  << EOF
+          ${{ secrets.RCLONE_CONFIG }}
+          EOF
+      - name: rclone Run
+        run: |
+          rclone copy ccsf:/ oned:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 15 --onedrive-chunk-size 120M --drive-chunk-size 128M
