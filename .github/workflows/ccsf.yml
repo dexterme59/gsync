@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir -p ~/.config/rclone
           cat >  ~/.config/rclone/rclone.conf  << EOF
-          ${{ secrets.RCLONE_CONFIG }}
+          ${{ secrets.RCLONE_CONFIG_0 }}
           EOF
       - name: rclone Run
         run: |
