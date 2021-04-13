@@ -1,4 +1,4 @@
-name: onesync
+name: ccsf
 on:
   schedule:
     - cron: 0 6/12 * * *
