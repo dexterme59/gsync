@@ -1,7 +1,7 @@
-name: onesync_2
+name: course2-oneda
 on:
-  #schedule:
-   #- cron: 0 6/12 * * *
+  schedule:
+   - cron: 0 6/12 * * *
   workflow_dispatch:
     inputs:
     
@@ -18,8 +18,8 @@ jobs:
         run: |
           mkdir -p ~/.config/rclone
           cat >  ~/.config/rclone/rclone.conf  << EOF
-          ${{ secrets.RCLONE_CONFIG_0 }}
+          ${{ secrets.RCLONE_CONFIG }}
           EOF
       - name: rclone Run
         run: |
-          rclone copy coursedevil:/ one:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 8 --onedrive-chunk-size 60M --drive-chunk-size 128M --drive-acknowledge-abuse --onedrive-no-versions
+          rclone copy course2:/ oneda:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 8 --onedrive-chunk-size 60M --drive-chunk-size 128M --drive-acknowledge-abuse --onedrive-no-versions
