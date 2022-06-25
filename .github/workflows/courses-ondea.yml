@@ -8,7 +8,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    name: Courses Copy
+    name: Courses A - Oned A
     steps:
       - uses: actions/checkout@v2
       - name: rclone Install
