@@ -1,7 +1,7 @@
 name: course2-oneda
 on:
   schedule:
-   - cron: 0 6/12 * * *
+   - cron: 0 4 * * *
   workflow_dispatch:
     inputs:
     
