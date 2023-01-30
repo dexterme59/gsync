@@ -1,7 +1,7 @@
 name: onesync
 on:
   schedule:
-   - cron: 0 12 * * *
+   - cron: 0 */6 * * *
   workflow_dispatch:
     inputs:
     
@@ -22,4 +22,4 @@ jobs:
           EOF
       - name: rclone Run
         run: |
-          rclone copy course3:/ oneda:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 8 --onedrive-chunk-size 60M --drive-chunk-size 128M --drive-acknowledge-abuse --onedrive-no-versions
+          rclone copy rknec:/"udemy-v1" newone:/ -P --check-first --checkers 256 --stats-one-line --stats=1s --transfers 8 --onedrive-chunk-size 60M --drive-chunk-size 128M --drive-acknowledge-abuse --onedrive-no-versions
